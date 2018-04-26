@@ -45,15 +45,17 @@ double getRoot(double x1, double x2, int iteration)
     //cout<<iteration<<nt<<x1<<nt<<x2<<nt<<x0<<nt<<f1<<nt<<f2<<nt<<f0<<nt<<error<<endl;
     printf("\t%3d\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\n", iteration, x1, x2, x0, f1, f2, f0, error);
 
+    ///breaking conditions
     if(f0 == 0)
         return x0;
+    if(error < E)
+        return (x1+x2)/2;
+
     if(f1*f0 < 0)
         x2 = x0;
     else
         x1 = x0;
 
-    if(error < E)
-        return (x1+x2)/2;
     return getRoot(x1, x2, iteration+1);
 }
 
@@ -67,7 +69,8 @@ int main()
         cin >> x1;
         cout << "Enter the value of x2: ";
         cin >> x2;
-    } while(f(x1)*f(x2) > 0);
+    }
+    while(f(x1)*f(x2) > 0);
     ///receive input till we get a valid range
 
     drawLine;
