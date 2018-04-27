@@ -9,7 +9,7 @@ ALGORITHM:
 2. compute f1 = f(x1) and f2 = f(x2)
 3. if f1*f2>0, for x1 & x2, do not bracket any root and
     go to step 1
-4. compute x0 = (x1+x2)/2, f0 = f(x0)
+4. compute x0 = x1 - (f(x1)*(x1-x2)/(f(x1)-f(x2))), f0 = f(x0)
 5. if f0=0 then root = x0, print root
 6. if f1*f2<0 set x2=x0, else set x1=x0
 7. if |(x2-x1)/x2| is less than E then root = (x1+x2)/2,
